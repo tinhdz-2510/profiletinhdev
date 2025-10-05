@@ -3,114 +3,315 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Profile cá nhân Lê Đình Tính — Web Developer, Mobile Enthusiast" />
-  <meta name="keywords" content="Lê Đình Tính, Web Developer, Mobile, Profile, CV, Portfolio" />
-  <meta name="author" content="Lê Đình Tính" />
-  <title>Profile — Lê Đình Tính</title>
-  <link rel="icon" href="https://png.pngtree.com/background/20230610/original/pngtree-asian-programmer-focusing-on-his-work-picture-image_3023974.jpg" type="image/png">
+  <meta name="description" content="Profile cá nhân Lê Đình Tính — Web Developer & Mobile Enthusiast" />
+  <title>Lê Đình Tính — Profile Siêu Đỉnh</title>
+
+  <!-- Font & Icon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6d91e84e5c.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://raw.githubusercontent.com/tinhdz-2510/profiletinhdev/refs/heads/main/assets/test.jfif" type="image/png">
+
   <style>
-    :root { --accent: #0077ff; --bg: #f2f8ff; --text: #1a1a1a; --muted: #5b6b7a; --card: #fff; --card-soft: #f7faff; --shadow: 0 8px 24px rgba(0,0,0,0.1); }
-    body.dark { --bg: #121212; --text: #f0f0f0; --muted: #aaa; --card: #1e1e1e; --card-soft: #2a2a2a; --shadow: 0 6px 16px rgba(0,0,0,0.6); }
-    body { margin: 0; font-family: "Segoe UI", sans-serif; background: var(--bg); color: var(--text); transition: background 0.5s, color 0.5s; line-height: 1.6; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; animation: fadeUp 1s ease-in-out; }
-    .hero { display: flex; flex-wrap: wrap; gap: 24px; background: var(--card); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); align-items: center; position: relative; animation: fadeDown 1s ease-in-out; }
-    .avatar img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); box-shadow: var(--shadow); object-fit: cover; transition: transform 0.4s, box-shadow 0.4s; }
-    .avatar img:hover { transform: scale(1.08) rotate(2deg); box-shadow: 0 0 25px var(--accent); }
-    .hero-info h1 { margin: 0; font-size: 28px; }
-    .hero-info p { margin: 6px 0 14px; color: var(--muted); }
-    nav.topnav { margin-top: 8px; }
-    nav.topnav a { margin-right: 16px; text-decoration: none; color: var(--muted); font-weight: 600; transition: 0.3s; }
+    :root {
+      --accent: #0077ff;
+      --bg: #f3f7ff;
+      --text: #1a1a1a;
+      --muted: #5b6b7a;
+      --card: rgba(255, 255, 255, 0.85);
+      --shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    body.dark {
+      --bg: #0d1117;
+      --text: #f0f0f0;
+      --muted: #aaa;
+      --card: rgba(22,27,34,0.9);
+      --shadow: 0 6px 16px rgba(0,0,0,0.6);
+    }
+
+    * { transition: all 0.4s ease; box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(120deg, #0077ff, #00c6ff, #0077ff);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+    .hero {
+      display: flex; flex-wrap: wrap;
+      gap: 24px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .avatar {
+      position: relative;
+    }
+
+    .avatar img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 25px rgba(0,119,255,0.4);
+      object-fit: cover;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .avatar img:hover {
+      transform: rotateY(15deg) scale(1.05);
+      box-shadow: 0 0 50px rgba(0,119,255,0.7), 0 0 80px rgba(0,119,255,0.3);
+    }
+
+    .hero-info h1 { margin: 0; font-size: 32px; }
+    .hero-info p { margin: 8px 0 14px; color: var(--muted); font-size: 17px; }
+
+    nav.topnav a {
+      margin-right: 16px;
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      position: relative;
+    }
     nav.topnav a:hover, nav.topnav a.active { color: var(--accent); }
-    nav.topnav i { margin-right: 6px; }
-    .theme-toggle { position: absolute; top: 16px; right: 16px; background: var(--card); border: 2px solid var(--accent); border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow); transition: background 0.3s, transform 0.3s; }
-    .theme-toggle:hover { background: var(--accent); color: #fff; transform: rotate(15deg); }
-    .card { background: var(--card); border-radius: 14px; padding: 20px; margin-top: 20px; box-shadow: var(--shadow); animation: fadeUp 1.2s ease-in-out; }
-    h2 { margin-top: 0; color: var(--accent); font-size: 22px; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
-    .skill-item { padding: 12px; border-radius: 10px; background: var(--card-soft); text-align: center; font-weight: 500; transition: transform 0.3s, background 0.3s, box-shadow 0.3s; }
-    .skill-item:hover { transform: translateY(-5px); background: var(--accent); color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
-    .contact-links a { display: flex; align-items: center; gap: 10px; margin: 8px 0; padding: 10px 14px; border-radius: 10px; background: linear-gradient(90deg,#e3f2fd,#f1f8ff); color: var(--text); text-decoration: none; transition: 0.3s; }
-    body.dark .contact-links a { background: linear-gradient(90deg,#2a2a2a,#1e1e1e); }
-    .contact-links a:hover { background: linear-gradient(90deg, var(--accent), #00c6ff); color: #fff; transform: translateX(6px); }
-    .cv-btn { display: inline-block; margin-top: 12px; padding: 10px 16px; background: linear-gradient(90deg, #0077ff, #00c6ff); color: #fff; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: var(--shadow); background-size: 200% auto; transition: background-position 0.4s; animation: pulse 2s infinite; }
-    .cv-btn:hover { background-position: right center; }
-    footer { text-align: center; margin-top: 30px; font-size: 14px; background: linear-gradient(90deg, #0077ff, #00c6ff); color: #fff; padding: 14px; border-radius: 12px; }
-    @media (max-width: 768px) { .hero { flex-direction: column; text-align: center; } .avatar img { margin-bottom: 16px; } nav.topnav a { display: inline-block; margin-bottom: 8px; } }
-    @keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes fadeDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(0,119,255,0.6);} 70%{box-shadow:0 0 0 15px rgba(0,119,255,0);} 100%{box-shadow:0 0 0 0 rgba(0,119,255,0);} }
+
+    .theme-toggle {
+      position: absolute;
+      top: 16px; right: 16px;
+      border: none;
+      background: var(--card);
+      border-radius: 50%;
+      width: 50px; height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.6s ease;
+    }
+    .theme-toggle:hover { transform: rotate(360deg) scale(1.15); background: var(--accent); color: #fff; }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s ease;
+    }
+    .card.visible { opacity: 1; transform: translateY(0); }
+
+    h2 { color: var(--accent); font-size: 22px; }
+
+    .typing span {
+      opacity: 0;
+      transform: translateY(10px);
+      display: inline-block;
+      animation: fadeInUp 0.6s forwards;
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .skills-grid { display: flex; flex-direction: column; gap: 16px; }
+    .skill-bar {
+      background: rgba(255,255,255,0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 16px;
+    }
+    .skill-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent), #00c6ff);
+      width: 0;
+      transition: width 2s ease;
+    }
+    .skill-label {
+      display: flex; justify-content: space-between;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .contact-links a img {
+      width: 65px;
+      height: 65px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,119,255,0.2);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .contact-links a img:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 0 25px rgba(0,119,255,0.8), 0 0 50px rgba(0,119,255,0.4);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      background: linear-gradient(90deg, #0077ff, #00c6ff);
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .avatar img { margin-bottom: 16px; }
+    }
+
+    /* Hiệu ứng ánh sáng nút */
+    button, .contact-links a img {
+      position: relative;
+      overflow: hidden;
+    }
+    button::after, .contact-links a img::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -75%;
+      width: 50%; height: 100%;
+      background: rgba(255,255,255,0.3);
+      transform: skewX(-25deg);
+      transition: left 0.6s ease;
+    }
+    button:hover::after, .contact-links a img:hover::after {
+      left: 125%;
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header class="hero">
       <div class="avatar">
-        <img src="https://raw.githubusercontent.com/tinhdz-2510/profiletinhdev/refs/heads/main/assets/test.jfif" 
-             alt="Ảnh đại diện của Lê Đình Tính - Web Developer" loading="lazy">
+        <img src="https://raw.githubusercontent.com/tinhdz-2510/profiletinhdev/refs/heads/main/assets/test.jfif" alt="Avatar Lê Đình Tính">
       </div>
       <div class="hero-info">
-        <h1>Lê Đình Tính <span style="color:var(--muted)">• Tínhdzvl</span></h1>
-        <p>🌐 Web Developer · 📱 Mobile Enthusiast · 🚀 Thích code & chia sẻ kiến thức</p>
-        <nav class="topnav" aria-label="Main navigation">
+        <h1>Lê Đình Tính <span style="color:var(--muted)">• Tinhdzvl</span></h1>
+        <p class="typing"></p>
+        <nav class="topnav">
           <a href="#about"><i class="fas fa-user"></i> Giới thiệu</a>
           <a href="#skills"><i class="fas fa-lightbulb"></i> Kỹ năng</a>
-          <a href="#contact"><i class="fas fa-envelope"></i> Liên hệ</a>
+          <a href="#contact"><i class="fas fa-share-alt"></i> Liên hệ</a>
         </nav>
       </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Chuyển đổi chế độ sáng/tối"><i class="fas fa-moon"></i></button>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
     </header>
+
     <section id="about" class="card">
       <h2>👋 Giới thiệu</h2>
-      <p>Xin chào! Mình là <strong>Lê Đình Tính</strong>. Mình đam mê phát triển web & mobile, ưu tiên trải nghiệm người dùng, performance và code dễ bảo trì.</p>
+      <p>Xin chào! Mình là <strong>Lê Đình Tính</strong> — một người yêu công nghệ, sáng tạo và luôn hướng tới sự hoàn hảo trong từng dòng code. 💻</p>
     </section>
+
     <section id="skills" class="card">
       <h2>💡 Kỹ năng</h2>
       <div class="skills-grid">
-        <div class="skill-item">HTML / CSS</div>
-        <div class="skill-item">JavaScript</div>
-        <div class="skill-item">ReactJS</div>
-        <div class="skill-item">NodeJS</div>
-        <div class="skill-item">Python</div>
-        <div class="skill-item">MySQL / MongoDB</div>
+        <div class="skill">
+          <div class="skill-label"><span>HTML</span><span>99%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="99%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label"><span>CSS</span><span>93%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="93%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="skill-label"><span>JavaScript</span><span>95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-level="95%"></div></div>
+        </div>
       </div>
     </section>
+
     <section id="contact" class="card">
-      <h2>📩 Liên hệ nhanh</h2>
+      <h2>🌐 Liên hệ</h2>
       <div class="contact-links">
-        <a href="mailto:tinhdzvll@gmail.com"><i class="fas fa-envelope"></i>Email</a>
-        <a href="https://www.facebook.com/share/1P44PR1c5r/" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i>GitHub</a>
-        <a href="https://www.tiktok.com/@ledinhtinh08" target="_blank"><i class="fab fa-tiktok"></i>TikTok</a>
-        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i>LinkedIn</a>
+        <a href="https://www.facebook.com/share/1P44PR1c5r/" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_(2019).svg" alt="Facebook">
+        </a>
+        <a href="https://www.tiktok.com/@ledinhtinh08" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok">
+        </a>
       </div>
-      <a class="cv-btn" href="assets/CV.pdf" download="LeDinhTinh_CV.pdf"><i class="fas fa-download"></i> Tải CV PDF</a>
     </section>
-    <footer>&copy; 2025 — Profile cá nhân <strong>Lê Đình Tính</strong> • Made with ❤ by Tínhdzvl</footer>
+
+    <footer>&copy; 2025 — Profile cá nhân <strong>Lê Đình Tính</strong> • Made with ❤️ by Tínhdzvl</footer>
   </div>
+
+  <!-- Âm thanh -->
+  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_0a9e946c42.mp3"></audio>
+
   <script>
-    const toggleBtn = document.getElementById("themeToggle");
+    const btn = document.getElementById("themeToggle");
     const body = document.body;
-    const icon = toggleBtn.querySelector("i");
-    if (localStorage.getItem("theme") === "dark") { body.classList.add("dark"); icon.classList.replace("fa-moon", "fa-sun"); }
-    toggleBtn.addEventListener("click", () => {
+    const clickSound = document.getElementById("clickSound");
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      btn.textContent = "☀️";
+    }
+
+    btn.addEventListener("click", () => {
+      clickSound.play();
       body.classList.toggle("dark");
-      if (body.classList.contains("dark")) { icon.classList.replace("fa-moon", "fa-sun"); localStorage.setItem("theme", "dark"); }
-      else { icon.classList.replace("fa-sun", "fa-moon"); localStorage.setItem("theme", "light"); }
+      btn.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
+      localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
     });
-    const sections = document.querySelectorAll(".card");
-    const navLinks = document.querySelectorAll("nav.topnav a");
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(sec => {
-        const top = sec.offsetTop - 100;
-        const height = sec.clientHeight;
-        if (pageYOffset >= top && pageYOffset < top + height) { current = sec.getAttribute("id"); }
+
+    const typing = document.querySelector(".typing");
+    const text = "💻 Đam mê công nghệ • Sáng tạo không ngừng";
+    [...text].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.animationDelay = `${i * 0.05}s`;
+      typing.appendChild(span);
+    });
+
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-      navLinks.forEach(a => {
-        a.classList.remove("active");
-        if (a.getAttribute("href") === "#" + current) { a.classList.add("active"); }
+    }, { threshold: 0.2 });
+    cards.forEach(c => observer.observe(c));
+
+    const skillBars = document.querySelectorAll('.skill-fill');
+    window.addEventListener('scroll', () => {
+      skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom >= 0) {
+          bar.style.width = bar.getAttribute('data-level');
+        }
       });
+    });
+
+    // Hiệu ứng âm thanh hover
+    document.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("mouseenter", () => clickSound.play());
     });
   </script>
 </body>
